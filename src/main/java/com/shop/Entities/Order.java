@@ -18,6 +18,8 @@ public class Order {
     private Product product;
 
 
+
+
     public Order() {
     }
 
@@ -31,6 +33,7 @@ public class Order {
         this.product = product;
         this.quantity = quantity;
     }
+
 
     public Order(Product product) {
         this.product = product;

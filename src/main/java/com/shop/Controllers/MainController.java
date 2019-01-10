@@ -28,27 +28,18 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(){
-        return "main";
-    }
-
-    @PostMapping("loadAllProducts")
-    public String loadAllProducts(Map<String,Object> model){
+    public String test(Map<String,Object> model){
         model.put("allProducts",productRepository.findAll());
-        return "main";
+        model.put("allOrders",orderRepository.findAll());
+        return "test";
     }
 
-    @PostMapping("loadAllOrders")
-    public String loadAllOrders(Map<String,Object> model){
-        model.put("allOrders",orderRepository.findAll());
-        return "main";
-    }
 
     @PostMapping("addProduct")
     public String addProduct(@RequestParam String productName, @RequestParam Double productPrice,
                              Map<String,Object> model){
        productRepository.save(new Product(productName,productPrice));
-        return "main";
+        return "redirect:/main";
     }
 
     @PostMapping("addOrder")
@@ -66,7 +57,7 @@ public class MainController {
         }catch (NoEntityException e){
             model.put("productAdding", "Product id - not found!");
         }
-        return "main";
+        return "redirect:/main";
     }
 
 

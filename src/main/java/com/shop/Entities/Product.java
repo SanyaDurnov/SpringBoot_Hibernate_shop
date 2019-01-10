@@ -40,4 +40,13 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getId());
+    }
 }
