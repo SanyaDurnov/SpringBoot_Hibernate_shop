@@ -1,8 +1,7 @@
 package com.shop.Entities;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "orders")
@@ -17,9 +16,6 @@ public class Order {
     @JoinColumn(name = "productId")
     private Product product;
 
-
-
-
     public Order() {
     }
 
@@ -33,7 +29,6 @@ public class Order {
         this.product = product;
         this.quantity = quantity;
     }
-
 
     public Order(Product product) {
         this.product = product;

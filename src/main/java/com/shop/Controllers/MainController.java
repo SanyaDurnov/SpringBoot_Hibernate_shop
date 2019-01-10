@@ -1,11 +1,9 @@
 package com.shop.Controllers;
-
 import com.shop.Entities.Order;
 import com.shop.Entities.Product;
 import com.shop.Exceptions.NoEntityException;
 import com.shop.Repos.OrderRepository;
 import com.shop.Repos.ProductRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
