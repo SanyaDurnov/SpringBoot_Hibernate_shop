@@ -22,9 +22,13 @@ public class MainController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/main")
+    @GetMapping()
     public String index(){
+        return "redirect:/main";
+    }
 
+    @GetMapping("/main")
+    public String main(){
         return "main";
     }
 
@@ -55,8 +59,7 @@ public class MainController {
         try {
             Product product = productRepository.findById(productId).orElseThrow(()
                     -> new NoEntityException(productId, "Ni"));
-            Order order = new Order(product, quantity, orderName);
-            orderRepository.save(order);
+            orderRepository.save(new Order(product, quantity, orderName));
             Iterable<Order> allOrders = orderRepository.findAll();
             model.put("allOrders", allOrders);
             model.put("productAdding", "Product successfully added!");
