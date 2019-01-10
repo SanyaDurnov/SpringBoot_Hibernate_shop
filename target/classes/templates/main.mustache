@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Orders Table</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div>
+    <form method="post" action="addProduct">
+        <input type="text" name="productName" placeholder="Наименование">
+        <input type = "number" name="productPrice", placeholder="Цена">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="/loadAllProducts">
+        <button type="submit">Загрузить</button>
+    </form>
+</div>
+
+<div>
+    {{#allProducts}}
+        <div>
+            <b>{{id}}</b>
+            <span>{{productName}}</span>
+            <span>{{price}}</span>
+        </div>
+    {{/allProducts}}
+</div>
+
+<div>
+    <p>-----------------------------------------------------------------------------------------------------------</p>
+</div>
+
+<div>
+    <form method="post" action="addOrder">
+        <input type="text" name="orderName" placeholder="Номер Заказа">
+        <input type = "number" name="quantity", placeholder="Количество">
+        <input type = "text" name="productId", placeholder="Продукт">
+
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>
+    {{#productAdding}}
+        {{productAdding}}
+    {{/productAdding}}
+</div>
+<div>
+    {{#allOrders}}
+        <div>
+            <b>{{id}}</b>
+            <span>{{orderName}}</span>
+            <span{{quantity}}</span>
+            <span>{{quantity}}</span>
+        </div>
+    {{/allOrders}}
+</div>
+
+<p>---------------------------------------------------------------------------------------------------------------------</p>>
+
+<div>
+    <form method="post" action="/loadAllOrders">
+        <button type="submit">Загрузить</button>
+    </form>
+</div>
+
+
+
+</body>
+</html>
