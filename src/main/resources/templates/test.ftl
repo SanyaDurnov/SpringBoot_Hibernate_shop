@@ -2,8 +2,9 @@
 <#import "parts/tables.ftl" as t>
 
 <@c.page>
-    <h2>Add product</h2>
+    <h2>Add/Delete product</h2>
     <@c.addProductForm></@c.addProductForm>
+    <@c.delProductById></@c.delProductById>
     <@c.loadButton "/main" "Load Products"></@c.loadButton>
     <@t.productTable></@t.productTable>
     <h2>Add order</h2>

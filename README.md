@@ -12,3 +12,8 @@ Try to create SpringBoot Web BootStrap application with PostgresDB
 Сборщик Maven, БД любая(предпочтительно PostgreSQL)
 Приложить dump
 Стэк Servlet API(Spring MVC) + JDBC (Spring JPA) + интерфейс любым способом
+
+# Описание
+Задание выполнено используя Spring Boot, Hibernate. Интерфейс реализован самый простой.
+В дальнейщем планируется переделать приложение в REST и создать UI с помощью Vue.js.
+Зависимость в таблицах лкчше сделать @ManyToMany

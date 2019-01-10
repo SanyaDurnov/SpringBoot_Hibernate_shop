@@ -22,12 +22,14 @@
         <table border="1">
             <caption>Order list</caption>
             <th>Order number</th>
+            <th>Product</th>
             <th>Product Id</th>
             <th>Quantity</th>
             <#list allOrders as orders>
                 <tr>
                     <td>${orders.orderName}</td>
-                    <td>${orders.product}</td>
+                    <td>${orders.product.getProductName()}</td>
+                    <td>${orders.product.id}</td>
                     <td>${orders.quantity}</td>
                 </tr>
             <#else >

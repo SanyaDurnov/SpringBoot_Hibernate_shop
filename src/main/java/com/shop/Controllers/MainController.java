@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class MainController {
+public class MainController  {
 
     @Autowired
     private OrderRepository orderRepository;
@@ -28,12 +28,23 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String test(Map<String,Object> model){
+    public String test(@RequestParam(defaultValue = "") String orderName, Map<String,Object> model){
+        if (!orderName.isEmpty() && orderName!=null ){
+            model.put("allOrders",orderRepository.findByOrderName(orderName));
+        }else
+            model.put("allOrders",orderRepository.findAll());
         model.put("allProducts",productRepository.findAll());
-        model.put("allOrders",orderRepository.findAll());
         return "test";
     }
 
+    @PostMapping("delProductById")
+    public String delProductById(@RequestParam(required = false) long id){
+        try {
+            productRepository.deleteById(id);
+        }
+        catch (Exception e){return "redirect:/main";}
+        return "redirect:/main";
+    }
 
     @PostMapping("addProduct")
     public String addProduct(@RequestParam String productName, @RequestParam Double productPrice,
@@ -46,7 +57,6 @@ public class MainController {
     public String addOrder(@RequestParam String orderName, @RequestParam int quantity,
                            @RequestParam long productId,
                            Map<String,Object> model) throws NoEntityException{
-
         try {
             Product product = productRepository.findById(productId).orElseThrow(()
                     -> new NoEntityException(productId, "Ni"));
