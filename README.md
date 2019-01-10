@@ -1,5 +1,5 @@
 # SpringBoot_Hibernate_shop
-Try to create SpringBoot RestFull web application with PostgresDB
+Try to create SpringBoot Web BootStrap application with PostgresDB
 
 # Задание
 Написать простое WEB приложение с использованием паттерна MVC
